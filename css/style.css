@@ -1,1 +1,26 @@
-#map { height: 400px; }
+#mapid { height: 400px; }
+
+.leaflet-popup-content p {
+    margin: 0.2em 0;
+}
+
+#panel {
+    width: 26%;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: 42px;
+}
+
+.range-slider {
+    width: 50%;
+}
+
+#forward {
+    float: right;
+}
+
+#reverse {
+    float: left;
+}
