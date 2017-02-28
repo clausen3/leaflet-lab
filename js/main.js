@@ -1,4 +1,6 @@
-//lab 1
+//lab 1 Jacob clausen
+
+//leaflet-search plugin used from https://github.com/stefanocudini/leaflet-search
 
 
 
@@ -10,11 +12,16 @@ var map = L.map('mapid', {
   zoom: 2,
 });
 
-//adds tilelayers from OSM
+
+
+//var geocoder = L.Mapzen.geocoder('mapzen-dH6CaUV');
+//geocoder.addTo(map);
+
+
+
+//adds tilelayers from mapbox
 L.tileLayer('https://api.mapbox.com/styles/v1/clausen3/ciz4z7jvy00602rqbu1wefpt6/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xhdXNlbjMiLCJhIjoiY2l6NHlyYmRlMDVtOTJ5bjh5ZWUwYm1zciJ9.-gVypoiuj7bIOTtdnn4uaw', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
-
-
 }).addTo(map);
 
 getData(map);
@@ -36,10 +43,9 @@ function calcPropRadius(attValue) {
 
 
 
-
-
-
-//function to convert markers to circle markers
+//function to convert markers to circle markers for each feature and each
+//circle marker will have a popup on click displaying the city name
+//and rainfall amount for the current month
 function pointToLayer(feature, latlng, attributes){
     //Step 4: Assign the current attribute based on the first index of the attributes array
     var attribute = attributes[0];
@@ -67,7 +73,7 @@ function pointToLayer(feature, latlng, attributes){
     var popupContent = "<p><b>City:</b> " + feature.properties.City + "</p>";
     //add formatted attribute to popup content string
 var year = attribute.split("_")[1];
-popupContent += "<p><b>Rain fall in " + year + ":</b> " + feature.properties[attribute] + " Centimeters</p>";
+popupContent += "<p><b>Rain fall in " + year + ":</b> " + feature.properties[attribute] + " Inches</p>";
     //bind the popup to the circle marker
     layer.bindPopup(popupContent);
 
@@ -77,71 +83,106 @@ popupContent += "<p><b>Rain fall in " + year + ":</b> " + feature.properties[att
 
 
 
+//This function creates a search box that will allow the user to type
+//in a city name that is located on the map. The map will then highlight
+//that city, pan to it, and the popup will open
+//from: http://labs.easyblog.it/maps/leaflet-search/examples/geojson-layer.html
+function searchBar (map, data, featuresLayer, attributes) {
 
+  var cityName;
+  for (var attribute in data.features[0].properties){
+      //only take attributes with values
+      if (attribute == "City") {
+          cityName = attribute;
+      };
+  }
 
+  var searchControl = new L.Control.Search({
 
+    layer: featuresLayer,
+    propertyName: cityName,
+    marker: false,
+    moveToLocation: function (latlng, title, map) {
+      			//var zoom = map.getBoundsZoom(latlng.layer.getBounds());
+      map.setView(latlng); //took out "zoom" from map.setView(latlng, zoom)
+    }
+  });
 
-//This function creates proportional symbols based on the values within
-//the attribute variable
-function createPropSymbols(data, map, attributes){
-    //create a Leaflet GeoJSON layer and add it to the map
-    L.geoJson(data, {
-        pointToLayer: function(feature, latlng){
-            return pointToLayer(feature, latlng, attributes);
-        }
-    }).addTo(map);
+//if location is found, it will be highlighted and the popup will open
+  searchControl.on('search:locationfound', function(e) {
+
+  		e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
+  		if(e.layer._popup)
+  			e.layer.openPopup();
+
+  	}).on('search:collapsed', function(e) {
+
+  		featuresLayer.eachLayer(function(layer) {	//restore feature color
+  			featuresLayer.resetStyle(layer);
+  		});
+  	});
+
+  map.addControl(searchControl);
+
 };
 
 
 
 
-//Step 1: Create new sequence controls
+
+
+
+
+//Sequence controls
 function createSequenceControls(map, attributes){
-    //create range input element (slider)
+    //Input range of slider
     $('#panel').append('<input class="range-slider" type="range">');
-    //set slider attributes
+    //slider attributes
 $('.range-slider').attr({
     max: 6,
     min: 0,
     value: 0,
     step: 1
 });
+
 $('#panel').append('<button class="skip" id="reverse">Reverse</button>');
 $('#panel').append('<button class="skip" id="forward">Skip</button>');
-//Step 5: click listener for buttons
-//Example 3.12 line 2...Step 5: click listener for buttons
+
+//Click listener for buttons
 $('.skip').click(function(){
     //get the old index value
     var index = $('.range-slider').val();
 
-    //Step 6: increment or decrement depending on button clicked
+    //increment or decrement depending on button clicked
     if ($(this).attr('id') == 'forward'){
         index++;
-        //Step 7: if past the last attribute, wrap around to first attribute
+        //if past the last attribute, wrap around to first attribute
         index = index > 6 ? 0 : index;
     } else if ($(this).attr('id') == 'reverse'){
         index--;
-        //Step 7: if past the first attribute, wrap around to last attribute
+        //if past the first attribute, wrap around to last attribute
         index = index < 0 ? 6 : index;
     };
 
-    //Step 8: update slider
+    //update slider and symbols based on index
     $('.range-slider').val(index);
-    console.log(index);
+
     updatePropSymbols(map, attributes[index]);
+
 });
 
-//Step 5: input listener for slider
+//input listener for slider
 $('.range-slider').on('input', function(){
     //sequence
             var index = $(this).val();
-            console.log(index);
             updatePropSymbols(map, attributes[index]);
+
 });
 };
 
 
-
+//this function accesses all the leaflet layers on the map and selects
+//the L.circlemarkers layer and will update each radius and replace the popup
 function updatePropSymbols(map, attribute){
     map.eachLayer(function(layer){
       if (layer.feature && layer.feature.properties[attribute]){
@@ -157,7 +198,7 @@ function updatePropSymbols(map, attribute){
 
           //add formatted attribute to panel content string
           var year = attribute.split("_")[1];
-          popupContent += "<p><b>Population in " + year + ":</b> " + props[attribute] + " million</p>";
+          popupContent += "<p><b>Rainfall " + year + ":</b> " + props[attribute] + " Inches</p>";
 
           //replace the layer popup
           layer.bindPopup(popupContent, {
@@ -167,10 +208,22 @@ function updatePropSymbols(map, attribute){
     });
 };
 
+//This function creates proportional symbols based on the values within
+//the attribute values gotten from the pointToLayer function
+function createPropSymbols(data, map, attributes){
+    //Leaflet GeoJSON layer and adds it to the map
+  var theLayer = L.geoJson(data, {
+        pointToLayer: function(feature, latlng){
+            return pointToLayer(feature, latlng, attributes);
+        }
+    }).addTo(map);
+
+    //Search box created when the symbols are
+ searchBar(map, data, theLayer, attributes);
+};
 
 
-
-
+//this function returns an array of attribute names with rainfall values
 function processData(data){
     //empty array to hold attributes
     var attributes = [];
@@ -180,7 +233,7 @@ function processData(data){
 
     //push each attribute name into attributes array
     for (var attribute in properties){
-        //only take attributes with population values
+        //only take attributes with rainfall values
         if (attribute.indexOf("Rainfall") > -1){
             attributes.push(attribute);
         };
@@ -193,8 +246,8 @@ function processData(data){
 };
 
 
-//Import GeoJSON data
-function getData(map){
+//Imports GeoJSON data and calls functions after this is finished
+function getData(map, attributes){
   $.ajax("data/AverageRainfall.geojson", {
       dataType: "json",
       success: function(response){
@@ -203,8 +256,11 @@ function getData(map){
 
           createPropSymbols(response, map, attributes);
           createSequenceControls(map, attributes);
+
       }
+
   });
 };
+
 
 $(document).ready(createMap);

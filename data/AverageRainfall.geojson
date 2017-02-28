@@ -1,1 +1,305 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"City":"London","Rainfall_Jan":1.9,"Rainfall_Feb":1.5,"Rainfall_Mar":1.5,"Rainfall_Apr":1.6,"Rainfall_May":1.9,"Rainfall_Jun":1.9,"Rainfall_Jul":2.3},"geometry":{"type":"Point","coordinates":[-0.12721,51.5064201]}},{"type":"Feature","properties":{"City":"Paris","Rainfall_Jan":7.2,"Rainfall_Feb":4.7,"Rainfall_Mar":6.2,"Rainfall_Apr":8.1,"Rainfall_May":12.7,"Rainfall_Jun":11.8,"Rainfall_Jul":9.3},"geometry":{"type":"Point","coordinates":[2.3412001,48.8569298]}},{"type":"Feature","properties":{"City":"Rome","Rainfall_Jan":3.1,"Rainfall_Feb":2.8,"Rainfall_Mar":"","Rainfall_Apr":2.7,"Rainfall_May":2.6,"Rainfall_Jun":2,"Rainfall_Jul":1.3},"geometry":{"type":"Point","coordinates":[12.4958,41.9030495]}},{"type":"Feature","properties":{"City":"New York","Rainfall_Jan":3.1,"Rainfall_Feb":3,"Rainfall_Mar":3.9,"Rainfall_Apr":3.7,"Rainfall_May":3.7,"Rainfall_Jun":3.2,"Rainfall_Jul":4},"geometry":{"type":"Point","coordinates":[-73.8317032,40.7820015]}},{"type":"Feature","properties":{"City":"Vancouver","Rainfall_Jan":5.7,"Rainfall_Feb":4.8,"Rainfall_Mar":4,"Rainfall_Apr":2.7,"Rainfall_May":2.2,"Rainfall_Jun":1.9,"Rainfall_Jul":1.2},"geometry":{"type":"Point","coordinates":[-123.0439987,49.2811012]}},{"type":"Feature","properties":{"City":"Sydney","Rainfall_Jan":4.1,"Rainfall_Feb":4.4,"Rainfall_Mar":5.2,"Rainfall_Apr":5.1,"Rainfall_May":4.8,"Rainfall_Jun":5.1,"Rainfall_Jul":4},"geometry":{"type":"Point","coordinates":[151.2030029,-33.8740005]}},{"type":"Feature","properties":{"City":"Moscow","Rainfall_Jan":1.4,"Rainfall_Feb":1.1,"Rainfall_Mar":1.3,"Rainfall_Apr":1.5,"Rainfall_May":2,"Rainfall_Jun":2.6,"Rainfall_Jul":3.2},"geometry":{"type":"Point","coordinates":[37.6150208,55.7569695]}},{"type":"Feature","properties":{"City":"Tokyo","Rainfall_Jan":2,"Rainfall_Feb":2.8,"Rainfall_Mar":4.2,"Rainfall_Apr":5.1,"Rainfall_May":5.7,"Rainfall_Jun":6.9,"Rainfall_Jul":5.3},"geometry":{"type":"Point","coordinates":[139.8089447,35.6832085]}},{"type":"Feature","properties":{"City":"Beijing","Rainfall_Jan":0.2,"Rainfall_Feb":0.2,"Rainfall_Mar":0.3,"Rainfall_Apr":0.7,"Rainfall_May":1.3,"Rainfall_Jun":3.1,"Rainfall_Jul":8.8},"geometry":{"type":"Point","coordinates":[116.3876495,39.9065704]}},{"type":"Feature","properties":{"City":"San Francisco","Rainfall_Jan":4.4,"Rainfall_Feb":3,"Rainfall_Mar":3.1,"Rainfall_Apr":1.3,"Rainfall_May":0.4,"Rainfall_Jun":0.2,"Rainfall_Jul":0},"geometry":{"type":"Point","coordinates":[-122.4196396,37.7771187]}},{"type":"Feature","properties":{"City":"Cairo","Rainfall_Jan":0.2,"Rainfall_Feb":0.1,"Rainfall_Mar":0.1,"Rainfall_Apr":0.1,"Rainfall_May":0,"Rainfall_Jun":0,"Rainfall_Jul":0},"geometry":{"type":"Point","coordinates":[31.2421093,30.0454197]}},{"type":"Feature","properties":{"City":"Bangkok","Rainfall_Jan":0.4,"Rainfall_Feb":1.1,"Rainfall_Mar":1.2,"Rainfall_Apr":2.8,"Rainfall_May":7.5,"Rainfall_Jun":6,"Rainfall_Jul":6.2},"geometry":{"type":"Point","coordinates":[100.5048294,13.7533503]}},{"type":"Feature","properties":{"City":"Lima","Rainfall_Jan":0,"Rainfall_Feb":0,"Rainfall_Mar":0,"Rainfall_Apr":0,"Rainfall_May":0,"Rainfall_Jun":0,"Rainfall_Jul":0},"geometry":{"type":"Point","coordinates":[-77.0268021,-12.0561399]}},{"type":"Feature","properties":{"City":"Madison","Rainfall_Jan":1.2,"Rainfall_Feb":1.5,"Rainfall_Mar":2.2,"Rainfall_Apr":3.4,"Rainfall_May":3.5,"Rainfall_Jun":4.5,"Rainfall_Jul":4.2},"geometry":{"type":"Point","coordinates":[-89.4039688,43.042469]}},{"type":"Feature","properties":{"City":"Miami","Rainfall_Jan":1.6,"Rainfall_Feb":2.2,"Rainfall_Mar":3,"Rainfall_Apr":3.2,"Rainfall_May":5.4,"Rainfall_Jun":9.7,"Rainfall_Jul":6.5},"geometry":{"type":"Point","coordinates":[-80.197731,25.7748108]}}]}
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "London",
+        "Rainfall_Jan": 1.9,
+        "Rainfall_Feb": 1.5,
+        "Rainfall_Mar": 1.5,
+        "Rainfall_Apr": 1.6,
+        "Rainfall_May": 1.9,
+        "Rainfall_Jun": 1.9,
+        "Rainfall_Jul": 2.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.12721,
+          51.5064201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Paris",
+        "Rainfall_Jan": 7.2,
+        "Rainfall_Feb": 4.7,
+        "Rainfall_Mar": 6.2,
+        "Rainfall_Apr": 8.1,
+        "Rainfall_May": 12.7,
+        "Rainfall_Jun": 11.8,
+        "Rainfall_Jul": 9.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3412001,
+          48.8569298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Rome",
+        "Rainfall_Jan": 3.1,
+        "Rainfall_Feb": 2.8,
+        "Rainfall_Mar": "",
+        "Rainfall_Apr": 2.7,
+        "Rainfall_May": 2.6,
+        "Rainfall_Jun": 2,
+        "Rainfall_Jul": 1.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4958,
+          41.9030495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "New York",
+        "Rainfall_Jan": 3.1,
+        "Rainfall_Feb": 3,
+        "Rainfall_Mar": 3.9,
+        "Rainfall_Apr": 3.7,
+        "Rainfall_May": 3.7,
+        "Rainfall_Jun": 3.2,
+        "Rainfall_Jul": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8317032,
+          40.7820015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Vancouver",
+        "Rainfall_Jan": 5.7,
+        "Rainfall_Feb": 4.8,
+        "Rainfall_Mar": 4,
+        "Rainfall_Apr": 2.7,
+        "Rainfall_May": 2.2,
+        "Rainfall_Jun": 1.9,
+        "Rainfall_Jul": 1.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.0439987,
+          49.2811012
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Sydney",
+        "Rainfall_Jan": 4.1,
+        "Rainfall_Feb": 4.4,
+        "Rainfall_Mar": 5.2,
+        "Rainfall_Apr": 5.1,
+        "Rainfall_May": 4.8,
+        "Rainfall_Jun": 5.1,
+        "Rainfall_Jul": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2030029,
+          -33.8740005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Moscow",
+        "Rainfall_Jan": 1.4,
+        "Rainfall_Feb": 1.1,
+        "Rainfall_Mar": 1.3,
+        "Rainfall_Apr": 1.5,
+        "Rainfall_May": 2,
+        "Rainfall_Jun": 2.6,
+        "Rainfall_Jul": 3.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6150208,
+          55.7569695
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Tokyo",
+        "Rainfall_Jan": 2,
+        "Rainfall_Feb": 2.8,
+        "Rainfall_Mar": 4.2,
+        "Rainfall_Apr": 5.1,
+        "Rainfall_May": 5.7,
+        "Rainfall_Jun": 6.9,
+        "Rainfall_Jul": 5.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8089447,
+          35.6832085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Beijing",
+        "Rainfall_Jan": 0.2,
+        "Rainfall_Feb": 0.2,
+        "Rainfall_Mar": 0.3,
+        "Rainfall_Apr": 0.7,
+        "Rainfall_May": 1.3,
+        "Rainfall_Jun": 3.1,
+        "Rainfall_Jul": 8.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.3876495,
+          39.9065704
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "San Francisco",
+        "Rainfall_Jan": 4.4,
+        "Rainfall_Feb": 3,
+        "Rainfall_Mar": 3.1,
+        "Rainfall_Apr": 1.3,
+        "Rainfall_May": 0.4,
+        "Rainfall_Jun": 0.2,
+        "Rainfall_Jul": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4196396,
+          37.7771187
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Cairo",
+        "Rainfall_Jan": 0.2,
+        "Rainfall_Feb": 0.1,
+        "Rainfall_Mar": 0.1,
+        "Rainfall_Apr": 0.1,
+        "Rainfall_May": 0,
+        "Rainfall_Jun": 0,
+        "Rainfall_Jul": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2421093,
+          30.0454197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Bangkok",
+        "Rainfall_Jan": 0.4,
+        "Rainfall_Feb": 1.1,
+        "Rainfall_Mar": 1.2,
+        "Rainfall_Apr": 2.8,
+        "Rainfall_May": 7.5,
+        "Rainfall_Jun": 6,
+        "Rainfall_Jul": 6.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.5048294,
+          13.7533503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Lima",
+        "Rainfall_Jan": 0,
+        "Rainfall_Feb": 0,
+        "Rainfall_Mar": 0,
+        "Rainfall_Apr": 0,
+        "Rainfall_May": 0,
+        "Rainfall_Jun": 0,
+        "Rainfall_Jul": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0268021,
+          -12.0561399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Madison",
+        "Rainfall_Jan": 1.2,
+        "Rainfall_Feb": 1.5,
+        "Rainfall_Mar": 2.2,
+        "Rainfall_Apr": 3.4,
+        "Rainfall_May": 3.5,
+        "Rainfall_Jun": 4.5,
+        "Rainfall_Jul": 4.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.4039688,
+          43.042469
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Miami",
+        "Rainfall_Jan": 1.6,
+        "Rainfall_Feb": 2.2,
+        "Rainfall_Mar": 3,
+        "Rainfall_Apr": 3.2,
+        "Rainfall_May": 5.4,
+        "Rainfall_Jun": 9.7,
+        "Rainfall_Jul": 6.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.197731,
+          25.7748108
+        ]
+      }
+    }
+  ]
+}
