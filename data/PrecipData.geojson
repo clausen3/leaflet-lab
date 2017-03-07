@@ -1,0 +1,380 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "London",
+        "Prec_January": 1.85,
+        "Prec_February": 0.5,
+        "Prec_March": 1.22,
+        "Prec_April": 1.25,
+        "Prec_May": 1.26,
+        "Prec_June": 1.87,
+        "Prec_July": 0.57,
+        "Prec_August": 0.36,
+        "Prec_September": 0.96,
+        "Prec_October": 0.76,
+        "Prec_November": 1.68,
+        "Prec_December": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.12721,
+          51.5064201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Paris",
+        "Prec_January": 2.07,
+        "Prec_February": 1.42,
+        "Prec_March": 2.54,
+        "Prec_April": 1.17,
+        "Prec_May": 3.1,
+        "Prec_June": 1.64,
+        "Prec_July": 0.26,
+        "Prec_August": 0.02,
+        "Prec_September": 0.76,
+        "Prec_October": 1.05,
+        "Prec_November": 1.13,
+        "Prec_December": 0.52
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3412001,
+          48.8569298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Rome",
+        "Prec_January": 0.91,
+        "Prec_February": 1.58,
+        "Prec_March": 0.84,
+        "Prec_April": 0.57,
+        "Prec_May": 0.39,
+        "Prec_June": 0.75,
+        "Prec_July": 0.04,
+        "Prec_August": 0.13,
+        "Prec_September": 1.4,
+        "Prec_October": 2.23,
+        "Prec_November": 1.14,
+        "Prec_December": 0.59
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4958,
+          41.9030495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "New York",
+        "Prec_January": 4.41,
+        "Prec_February": 4.4,
+        "Prec_March": 1.17,
+        "Prec_April": 1.57,
+        "Prec_May": 3.75,
+        "Prec_June": 2.6,
+        "Prec_July": 7.02,
+        "Prec_August": 1.96,
+        "Prec_September": 2.79,
+        "Prec_October": 4.15,
+        "Prec_November": 5.41,
+        "Prec_December": 2.89
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8317032,
+          40.7820015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Vancouver",
+        "Prec_January": 4.55,
+        "Prec_February": 3.87,
+        "Prec_March": 4.01,
+        "Prec_April": 0.7,
+        "Prec_May": 1.77,
+        "Prec_June": 1.67,
+        "Prec_July": 1.08,
+        "Prec_August": 0.45,
+        "Prec_September": 2.29,
+        "Prec_October": 5.34,
+        "Prec_November": 5.48,
+        "Prec_December": 4.05
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.0439987,
+          49.2811012
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Sydney",
+        "Prec_January": 5.52,
+        "Prec_February": 0.14,
+        "Prec_March": 2.71,
+        "Prec_April": 1.23,
+        "Prec_May": 0.36,
+        "Prec_June": 4.75,
+        "Prec_July": 2.88,
+        "Prec_August": 2.86,
+        "Prec_September": 1.65,
+        "Prec_October": 0.65,
+        "Prec_November": 0.52,
+        "Prec_December": 1.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2030029,
+          -33.8740005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Houston",
+        "Prec_January": 2.88,
+        "Prec_February": 1.17,
+        "Prec_March": 3.23,
+        "Prec_April": 9.82,
+        "Prec_May": 7.93,
+        "Prec_June": 5.12,
+        "Prec_July": 3.7,
+        "Prec_August": 3.12,
+        "Prec_September": 0.47,
+        "Prec_October": 0.27,
+        "Prec_November": 1,
+        "Prec_December": 2.98
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.3698,
+          29.7604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Tokyo",
+        "Prec_January": 1.64,
+        "Prec_February": 1.48,
+        "Prec_March": 2.92,
+        "Prec_April": 2.6,
+        "Prec_May": 1.42,
+        "Prec_June": 2.9,
+        "Prec_July": 2.41,
+        "Prec_August": 9.39,
+        "Prec_September": 6.7,
+        "Prec_October": 2.5,
+        "Prec_November": 1.11,
+        "Prec_December": 2.24
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8089447,
+          35.6832085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Athens",
+        "Prec_January": 0.4,
+        "Prec_February": 0.91,
+        "Prec_March": 2.06,
+        "Prec_April": 0.01,
+        "Prec_May": 0.31,
+        "Prec_June": 0.99,
+        "Prec_July": 0.01,
+        "Prec_August": 0,
+        "Prec_September": 1.15,
+        "Prec_October": 1.26,
+        "Prec_November": 2.43,
+        "Prec_December": 0.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7275,
+          37.9838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "San Francisco",
+        "Prec_January": 5.58,
+        "Prec_February": 0.85,
+        "Prec_March": 4.54,
+        "Prec_April": 0.82,
+        "Prec_May": 0.05,
+        "Prec_June": 0,
+        "Prec_July": 0,
+        "Prec_August": 0,
+        "Prec_September": 0,
+        "Prec_October": 2.84,
+        "Prec_November": 2.84,
+        "Prec_December": 4.48
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4196396,
+          37.7771187
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Los Angeles",
+        "Prec_January": 3.17,
+        "Prec_February": 0.79,
+        "Prec_March": 1.6,
+        "Prec_April": 0.24,
+        "Prec_May": 0.05,
+        "Prec_June": 0,
+        "Prec_July": 0,
+        "Prec_August": 0,
+        "Prec_September": 0,
+        "Prec_October": 0.52,
+        "Prec_November": 0.88,
+        "Prec_December": 4.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.2437,
+          34.0522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Bangkok",
+        "Prec_January": 2.03,
+        "Prec_February": 0.01,
+        "Prec_March": 0.59,
+        "Prec_April": 0.51,
+        "Prec_May": 5.76,
+        "Prec_June": 12.91,
+        "Prec_July": 1,
+        "Prec_August": 8.68,
+        "Prec_September": 23.76,
+        "Prec_October": 17.64,
+        "Prec_November": 0.89,
+        "Prec_December": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.5048294,
+          13.7533503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Cape Town",
+        "Prec_January": 0.36,
+        "Prec_February": 0.12,
+        "Prec_March": 1.04,
+        "Prec_April": 1.19,
+        "Prec_May": 0.56,
+        "Prec_June": 1.59,
+        "Prec_July": 9.85,
+        "Prec_August": 2.98,
+        "Prec_September": 1.26,
+        "Prec_October": 0.17,
+        "Prec_November": 0.04,
+        "Prec_December": 0.55
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4241,
+          -33.9249
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Madison",
+        "Prec_January": 0.98,
+        "Prec_February": 0.52,
+        "Prec_March": 3.23,
+        "Prec_April": 2.11,
+        "Prec_May": 2.22,
+        "Prec_June": 5.35,
+        "Prec_July": 5.23,
+        "Prec_August": 7.87,
+        "Prec_September": 8.46,
+        "Prec_October": 4.96,
+        "Prec_November": 1.87,
+        "Prec_December": 2.03
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.4039688,
+          43.042469
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Miami",
+        "Prec_January": 7.57,
+        "Prec_February": 2.87,
+        "Prec_March": 0.61,
+        "Prec_April": 1.09,
+        "Prec_May": 8.27,
+        "Prec_June": 8.72,
+        "Prec_July": 4.11,
+        "Prec_August": 13.77,
+        "Prec_September": 6.05,
+        "Prec_October": 9.62,
+        "Prec_November": 0.94,
+        "Prec_December": 2.33
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.197731,
+          25.7748108
+        ]
+      }
+    }
+  ]
+}

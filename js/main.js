@@ -1,6 +1,6 @@
 //lab 1 Jacob clausen
-
 //leaflet-search plugin used from https://github.com/stefanocudini/leaflet-search
+
 
 
 
@@ -8,15 +8,9 @@
 function createMap(){
 //the view of the map upon start
 var map = L.map('mapid', {
-  center: [70,-20],
-  zoom: 2,
+  center: [15,5],
+  zoom: 1.5,
 });
-
-
-
-//var geocoder = L.Mapzen.geocoder('mapzen-dH6CaUV');
-//geocoder.addTo(map);
-
 
 
 //adds tilelayers from mapbox
@@ -32,7 +26,7 @@ getData(map);
 //appropriate attribute value
 function calcPropRadius(attValue) {
     //scale factor to adjust symbol size evenly
-    var scaleFactor = 50;
+    var scaleFactor = 100;
     //area based on attribute value and scale factor
     var area = attValue * scaleFactor;
     //radius calculated based on area
@@ -40,7 +34,6 @@ function calcPropRadius(attValue) {
 
     return radius;
 };
-
 
 
 //function to convert markers to circle markers for each feature and each
@@ -53,7 +46,7 @@ function pointToLayer(feature, latlng, attributes){
     console.log(attribute);
     //create marker options
     var options = {
-        fillColor: "#ff7800",
+        fillColor: "#3232ff",
         color: "#000",
         weight: 1,
         opacity: 1,
@@ -72,8 +65,8 @@ function pointToLayer(feature, latlng, attributes){
     //build popup content string
     var popupContent = "<p><b>City:</b> " + feature.properties.City + "</p>";
     //add formatted attribute to popup content string
-var year = attribute.split("_")[1];
-popupContent += "<p><b>Rain fall in " + year + ":</b> " + feature.properties[attribute] + " Inches</p>";
+    var year = attribute.split("_")[1];
+    popupContent += "<p><b>Precipitation in " + year + ":</b> " + feature.properties[attribute] + " Inches</p>";
     //bind the popup to the circle marker
     layer.bindPopup(popupContent);
 
@@ -127,27 +120,41 @@ function searchBar (map, data, featuresLayer, attributes) {
 };
 
 
-
-
-
-
-
-
-//Sequence controls
+//Sequence controls for user to sequence through different months one at a time
 function createSequenceControls(map, attributes){
+
+  var SequenceControl = L.Control.extend({
+      options: {
+          position: 'bottomleft'
+      },
+
+      onAdd: function (map) {
+          // creates the control container div with a particular class name
+          var container = L.DomUtil.create('div', 'sequence-control-container');
+          //creates slider
+          $(container).append('<input class="range-slider" type="range">');
+          //add skip buttons
+          $(container).append('<button class="skip" id="reverse" title="Reverse">Reverse</button>');
+          $(container).append('<button class="skip" id="forward" title="Forward">Skip</button>');
+
+          //kill any mouse event listeners on the map
+          $(container).on('mousedown dblclick', function(e){
+              L.DomEvent.stopPropagation(e);
+          });
+
+          return container;
+        }
+    });
+    map.addControl(new SequenceControl());
+
     //Input range of slider
-    $('#panel').append('<input class="range-slider" type="range">');
     //slider attributes
 $('.range-slider').attr({
-    max: 6,
+    max: 11,
     min: 0,
     value: 0,
     step: 1
 });
-
-$('#panel').append('<button class="skip" id="reverse">Reverse</button>');
-$('#panel').append('<button class="skip" id="forward">Skip</button>');
-
 //Click listener for buttons
 $('.skip').click(function(){
     //get the old index value
@@ -157,7 +164,7 @@ $('.skip').click(function(){
     if ($(this).attr('id') == 'forward'){
         index++;
         //if past the last attribute, wrap around to first attribute
-        index = index > 6 ? 0 : index;
+        index = index > 11 ? 0 : index;
     } else if ($(this).attr('id') == 'reverse'){
         index--;
         //if past the first attribute, wrap around to last attribute
@@ -198,7 +205,7 @@ function updatePropSymbols(map, attribute){
 
           //add formatted attribute to panel content string
           var year = attribute.split("_")[1];
-          popupContent += "<p><b>Rainfall " + year + ":</b> " + props[attribute] + " Inches</p>";
+          popupContent += "<p><b>Precipitation " + year + ":</b> " + props[attribute] + " Inches</p>";
 
           //replace the layer popup
           layer.bindPopup(popupContent, {
@@ -206,6 +213,8 @@ function updatePropSymbols(map, attribute){
           });
       };
     });
+    updateLegend(map, attribute);
+
 };
 
 //This function creates proportional symbols based on the values within
@@ -223,7 +232,7 @@ function createPropSymbols(data, map, attributes){
 };
 
 
-//this function returns an array of attribute names with rainfall values
+//This function returns an array of attribute names with rainfall values
 function processData(data){
     //empty array to hold attributes
     var attributes = [];
@@ -234,7 +243,7 @@ function processData(data){
     //push each attribute name into attributes array
     for (var attribute in properties){
         //only take attributes with rainfall values
-        if (attribute.indexOf("Rainfall") > -1){
+        if (attribute.indexOf("Prec") > -1){
             attributes.push(attribute);
         };
     };
@@ -246,9 +255,118 @@ function processData(data){
 };
 
 
+
+//This function creates a legend containing SVG graphics to represent
+//proportional symbols and calls updateLegend(); to display the approporiate
+//month and text
+function createLegend(map, attributes){
+
+  var LegendControl = L.Control.extend({
+    options:{
+      position: 'bottomright'
+    },
+
+    onAdd: function (map){
+      //creates the control container and adds the temporal legend to the div
+      var container = L.DomUtil.create('div', 'legend-control-container');
+      $(container).append('<div id="temporal-legend">')
+      //attribute legend svg string
+      var svg = '<svg id="attribute-legend" width="350px" height="250px">';
+
+      var circles = {
+        max: 20,
+        mean: 40,
+        min: 60
+      };
+
+      //adds each circle and text to svg string
+      for (var circle in circles){
+                  //circle string
+                  svg += '<circle class="legend-circle" id="' + circle + '" fill="#3232ff" fill-opacity=".8" stroke="#000000" cx="30"/>';
+                  //text string
+                  svg += '<text id="' + circle + '-text" x="65" y="' + circles[circle] + '"></text>';
+              };
+              svg += "</svg>";
+
+      $(container).append(svg);
+      return container;
+
+    }
+    });
+    map.addControl(new LegendControl());
+    updateLegend(map, attributes[0]);
+};
+
+
+//This function dynamically updates the appropriate month text based on
+//the appropriate attribute
+function updateLegend(map, attribute){
+
+      $('.legend-control-container').append('<div id="temporal-legend">')
+      // console.log(attribute)
+      var year = attribute.split("_")[1];
+      var content = "Precipitation In "+ year;
+      console.log(year);
+      $('#temporal-legend').html(content);
+
+      var circleValues = getCircleValues(map, attribute);
+
+   for (var key in circleValues){
+       //get the radius
+       var radius = calcPropRadius(circleValues[key]);
+
+       //assigns the cy and r attributes
+       $('#'+key).attr({
+           cy: 59 - radius,
+           r: radius
+       });
+
+       //add legend text
+       $('#'+key+'-text').text(Math.round(circleValues[key]*100)/100 + " Inches");
+
+   };
+};
+
+
+
+//Calculate the max, mean, and min values for a given attribute
+function getCircleValues(map, attribute){
+    //start with min at highest possible and max at lowest possible number
+    var min = Infinity,
+        max = -Infinity;
+
+    map.eachLayer(function(layer){
+        //get the attribute value
+        if (layer.feature){
+            var attributeValue = Number(layer.feature.properties[attribute]);
+
+            //test for min
+            if (attributeValue < min){
+                min = attributeValue;
+            };
+
+            //test for max
+            if (attributeValue > max){
+                max = attributeValue;
+            };
+        };
+    });
+
+    //set mean
+    var mean = (max + min) / 2;
+
+    //return values as an object
+    return {
+        max: max,
+        mean: mean,
+        min: min
+    };
+};
+
+
 //Imports GeoJSON data and calls functions after this is finished
 function getData(map, attributes){
-  $.ajax("data/AverageRainfall.geojson", {
+  $.ajax("data/PrecipData.geojson", {
       dataType: "json",
       success: function(response){
           //create an attributes array
@@ -256,7 +374,7 @@ function getData(map, attributes){
 
           createPropSymbols(response, map, attributes);
           createSequenceControls(map, attributes);
-
+          createLegend(map, attributes);
       }
 
   });
